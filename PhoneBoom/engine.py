@@ -11,9 +11,7 @@ from pyppeteer import launch
 
 headless = True
 browser = None
-numbers = [123,]
-
-
+numbers = range(3)
 async def init(headless=headless):
     global browser
     logger.info('start task init Browser')
@@ -33,7 +31,7 @@ async def main(num, website, url, jscode, **kws):
         await asyncio.sleep(0.2)
         logger.info(f'task: {website}--{num} succeed')
     except:
-        print(traceback.format_exc())
+        # print(traceback.format_exc())
         logger.error(f'task: {website}--{num} failed')
     finally:
         await asyncio.sleep(10)
